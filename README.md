@@ -7,8 +7,7 @@
 *A tool for telegram channal delivery,and it can help you to deliver the photo file by asking bilibili api.*
 
 
-
-main.py 即所有配置
+Asoul 二创图片机器人，基于 asoul.cloud ,main.py 即所有配置
 
 ## 使用
 
