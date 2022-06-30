@@ -94,7 +94,7 @@ cron 服务的启动与停止，命令如下
 *使用`crontab -e`*
 
 ```
-00 08   * * *  /bin/sh /root/Tool-Asoul-Music/cron.sh
+00 08   * * *  /bin/sh /root/Tool-Asoul-Fanart/cron.sh
 ```
 https://blog.csdn.net/xys2333/article/details/112469461
 https://blog.csdn.net/GX_1_11_real/article/details/86535942
@@ -103,5 +103,5 @@ https://blog.csdn.net/GX_1_11_real/article/details/86535942
 
 ```
 import sys
-sys.path.insert(0, '/root/Tool-Asoul-Music')
+sys.path.insert(0, '/root/Tool-Asoul-Fanart')
 ```
