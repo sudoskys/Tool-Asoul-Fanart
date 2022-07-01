@@ -23,7 +23,11 @@ class Runner(object):
                 Url = 'https://t.bilibili.com/' + Id
                 Name = datas.get(key).get("artist_name")
                 uid = str(datas.get(key).get("artist_uid"))
-                co, star, t = Claw().dog(Id)
+                try:
+                   co, star, t = Claw().dog(Id)
+                except:
+                   print("获取动态信息出错，已跳过 动态 "+str(Url))
+                   co=0;star=0
                 if co > 10 and star > 50:
                     content = '作者 #' + Name + '  UID-' + uid + ' \n' + Url + ' \n' + t
                     path_list = Renew().getPic(datas.get(key), key)
