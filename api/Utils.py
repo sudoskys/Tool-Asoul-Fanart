@@ -181,7 +181,7 @@ class Renew(object):
 
         # 回调函数
         # print(str(round(ed-st,2))+' seconds download finish:',title)
-        def random_sleep(mu=2, sigma=0.7):
+        def random_sleep(mu=3, sigma=0.7):
             """正态分布随机睡眠
             :param mu: 平均值
             :param sigma: 标准差，决定波动范围
