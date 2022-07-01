@@ -48,6 +48,6 @@ class Runner(object):
             # cloud
             if config.get('data')[0]:
                 from .Utils import jsonUtil
-                jsonUtil(config.get('lencloud')[1]).wjson(orgin + old)
+                jsonUtil(config.get('data')[1]).wjson(orgin + old)
 
 
