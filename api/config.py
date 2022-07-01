@@ -25,8 +25,8 @@ class Runner(object):
                 uid = str(datas.get(key).get("artist_uid"))
                 try:
                    co, star, t = Claw().dog(Id)
-                except:
-                   print("获取动态信息出错，已跳过 动态 "+str(Url))
+                except Exception as e:
+                   print("获取动态信息出错，已跳过 动态 "+str(Url)+'\n '+str(e))
                    co=0;star=0
                 if co > 10 and star > 50:
                     content = '作者 #' + Name + '  UID-' + uid + ' \n' + Url + ' \n' + t
@@ -46,7 +46,7 @@ class Runner(object):
                 # 删除键文件夹
                 shutil.rmtree(os.getcwd() + '/' + key, ignore_errors=True, onerror=None)  # 删除存储的视频文件
             # cloud
-            if config.get('lencloud')[0]:
+            if config.get('data')[0]:
                 from .Utils import jsonUtil
                 jsonUtil(config.get('lencloud')[1]).wjson(orgin + old)
 
