@@ -15,7 +15,7 @@ class Runner(object):
     def Push(self, config):
         BotTask = []
         datas = Renew().GetArt()
-        target, orgin, old = Renew().Id_take(list(datas),config)
+        target, orgin, old = Renew().Id_take(list(datas), config)
         if target:
             print(target)
             for key in target:

@@ -147,14 +147,15 @@ class Renew(object):
         # conn.close()
         return Art_list
 
-    def Id_take(self, rlist,config):
+    def Id_take(self, rlist, config):
         try:
             loaded = jsonUtil(config.get('data')[1]).rjson()  # json.loads(todo.get('record'))
         except:
+            print('初始化Json')
             loaded = []
         # print(type(loaded))
         ret = [i for i in rlist if i not in loaded]
-        return ret, rlist, loaded
+        return ret, rlist, list(loaded)
         # with open('Data.json', 'w') as f:
         #    f.write(json.dumps(list(Art_list)))
 
