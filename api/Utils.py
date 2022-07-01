@@ -149,7 +149,7 @@ class Renew(object):
 
     def Id_take(self, rlist,config):
         try:
-            loaded = jsonUtil(config.get('lencloud')[1]).rjson()  # json.loads(todo.get('record'))
+            loaded = jsonUtil(config.get('data')[1]).rjson()  # json.loads(todo.get('record'))
         except:
             loaded = []
         # print(type(loaded))
