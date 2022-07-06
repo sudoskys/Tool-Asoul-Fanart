@@ -11,6 +11,15 @@ Asoul 二创图片机器人，基于 asoul.cloud ,main.py 即所有配置
 
 ## 使用
 
+
+### 两个版本
+
+- `singe.py` 一个文件实现，leancloud数据存储版本，到处运行
+
+- `main.py` 规范架构，本地json文件版本
+
+如果选择单文件版本，需要在 leancloud.app 国际版拿到额外的密钥ID与key.
+
 Token是用户ID或者某些频道ID（需要拉机器人入频道） use tg@getidsbot |
 
 *关于推送服务*
