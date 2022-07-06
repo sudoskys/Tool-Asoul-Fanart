@@ -71,23 +71,16 @@ class Claw(object):
         ava = ["向晚", '嘉晚饭', '向晚大魔王', 'AVA', 'ava']
         diana = ['嘉然', '嘉然今天吃什么', '嘉心糖的手账本', '嘉晚饭']
         carol = ['珈乐', '珈乐Carol', 'Carol', '小狗说']
-        bella = ['贝拉', '贝拉Bella', '乃贝']
+        bella = ['贝拉', '贝拉Bella', '乃贝', '贝拉kira', '贝拉KIRA', '贝极星空间站的日常']
         ellen = ['乃琳', '乃琳Queen', '乃琳', '乃贝']
         rom = (list(filter(lambda x: x != '', s)))
-        if list(set(carol) & set(rom)):
-            Tag.append("珈乐")
-        if list(set(diana) & set(rom)):
-            Tag.append("嘉然")
-        if list(set(ava) & set(rom)):
-            Tag.append("向晚")
-        if list(set(bella) & set(rom)):
-            Tag.append("贝拉")
-        if list(set(ellen) & set(rom)):
-            Tag.append("乃琳")
-        if {'乃琳', '贝拉'} == set(Tag):
-            Tag.append("乃贝")
-        if {'嘉然', '向晚'} == set(Tag):
-            Tag.append("嘉晚饭")
+        if list(set(carol) & set(rom)): Tag.append("珈乐")
+        if list(set(diana) & set(rom)): Tag.append("嘉然")
+        if list(set(ava) & set(rom)): Tag.append("向晚")
+        if list(set(bella) & set(rom)): Tag.append("贝拉")
+        if list(set(ellen) & set(rom)): Tag.append("乃琳")
+        if {'乃琳', '贝拉'} == set(Tag): Tag.append("乃贝")
+        if {'嘉然', '向晚'} == set(Tag): Tag.append("嘉晚饭")
         Tags = ('#' + " #".join(Tag))
         return Tags, Tag
 
@@ -96,13 +89,19 @@ class Claw(object):
             :param ids: 动态ID
             :type ids: str
         """
-        # https://api.bilibili.com/x/polymer/web-dynamic/v1/detail?timezone_offset=-480&id=676770838894084134
-        apiUrl = 'https://api.bilibili.com/x/polymer/web-dynamic/v1/detail?timezone_offset=-480&id=' + ids
-        Data = requests.get(url=apiUrl, headers=self.header).json()
-        comment = (Data.get("data").get("item").get('modules').get('module_stat').get("comment")['count'])
-        star = (Data.get("data").get("item").get('modules').get('module_stat').get("like")['count'])
-        tag = str(Data.get("data").get("item").get('modules').get('module_dynamic').get("desc")['text'])
-        artTag, tagList = self.tag(tag)
+        try:
+            # https://api.bilibili.com/x/polymer/web-dynamic/v1/detail?timezone_offset=-480&id=676770838894084134
+            apiUrl = 'https://api.bilibili.com/x/polymer/web-dynamic/v1/detail?timezone_offset=-480&id=' + ids
+            Data = requests.get(url=apiUrl, headers=self.header).json()
+            comment = (Data.get("data").get("item").get('modules').get('module_stat').get("comment")['count'])
+            star = (Data.get("data").get("item").get('modules').get('module_stat').get("like")['count'])
+            tag = str(Data.get("data").get("item").get('modules').get('module_dynamic').get("desc")['text'])
+            artTag, tagList = self.tag(tag)
+        except:
+            star = 0
+            comment = 0
+            artTag = "被删除的动态"
+            print(ids)
         return comment, star, artTag
 
 
@@ -124,10 +123,7 @@ class Renew(object):
     def GetArt(self):
         art = requests.get(self.url, self.data, headers=self.headers, verify=False)
         Art_list = {}
-        # 连接数据库
-        # conn = sqlite3.connect('artData.db')
-        # 创建游标
-        # cs = conn.cursor()
+
         for i in art.json():
             artid = (i.get("dy_id"))
             artist_id = i.get("uid")
