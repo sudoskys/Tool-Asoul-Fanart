@@ -71,7 +71,7 @@ class Claw(object):
         ava = ["向晚", '嘉晚饭', '向晚大魔王', 'AVA', 'ava']
         diana = ['嘉然', '嘉然今天吃什么', '嘉心糖的手账本', '嘉晚饭']
         carol = ['珈乐', '珈乐Carol', 'Carol', '小狗说']
-        bella = ['贝拉', '贝拉Bella', '乃贝', '贝拉kira', '贝拉KIRA', '贝极星空间站的日常']
+        bella = ['贝拉', '贝拉Bella', '乃贝', '贝拉kira', '贝拉Kira', '贝拉KIRA', '贝极星空间站的日常']
         ellen = ['乃琳', '乃琳Queen', '乃琳', '乃贝']
         rom = (list(filter(lambda x: x != '', s)))
         if list(set(carol) & set(rom)): Tag.append("珈乐")
