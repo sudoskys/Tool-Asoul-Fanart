@@ -113,3 +113,10 @@ https://blog.csdn.net/GX_1_11_real/article/details/86535942
 import sys
 sys.path.insert(0, '/root/Tool-Asoul-Fanart')
 ```
+
+
+#### Support
+
+如果你感觉这对你有帮助，可以试着我赞助我一点～
+
+[![s](https://img.shields.io/badge/Mianbaoduo-support-DB94A2)](https://mianbaoduo.com/o/Sky2023)
